@@ -7,7 +7,7 @@ type Admin struct {
 	Roles []string
 }
 
-func (a *Admin) PrintDetails() {
+func (a Admin) PrintDetails() {
 	a.Person.PrintDetails()
 
 	fmt.Println("Admin Roles:")

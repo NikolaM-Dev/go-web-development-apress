@@ -7,7 +7,7 @@ type Member struct {
 	Skills []string
 }
 
-func (m *Member) PrintDetails() {
+func (m Member) PrintDetails() {
 	m.Person.PrintDetails()
 
 	fmt.Println("Skills:")
