@@ -12,3 +12,15 @@ type Person struct {
 	LastName  string
 	Location  string
 }
+
+func (p *Person) PrintName() {
+	fmt.Printf("\n%s %s\n", p.FirstName, p.LastName)
+}
+
+func (p *Person) PrintDetails() {
+	fmt.Printf("[Date of Brith: %s, Email: %s, Location: %s]\n", p.Dob.String(), p.Email, p.Location)
+}
+
+func (p *Person) ChangeLocation(newLocation string) {
+	p.Location = newLocation
+}
