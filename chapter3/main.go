@@ -4,23 +4,10 @@ import (
 	"time"
 
 	"github.com/NikolaM-Dev/go-web-development-apress/chapter3/person"
+	"github.com/NikolaM-Dev/go-web-development-apress/chapter3/team"
 )
 
 func main() {
-	nikola := &person.Person{
-		FirstName: "Nikola",
-		LastName:  "Dev",
-		Dob:       time.Date(2000, time.October, 7, 0, 0, 0, 0, time.UTC),
-		Email:     "nikola@gmail.com",
-		Location:  "Colombia",
-	}
-
-	nikola.PrintName()
-	nikola.PrintDetails()
-
-	nikola.ChangeLocation("New York")
-	nikola.PrintDetails()
-
 	alex := &person.Admin{
 		Person: person.Person{
 			Dob:       time.Date(1970, time.January, 10, 0, 0, 0, 0, time.UTC),
@@ -50,9 +37,25 @@ func main() {
 		},
 	}
 
-	alex.PrintName()
-	alex.PrintDetails()
+	chris := &person.Member{
+		Person: person.Person{
+			FirstName: "Chris",
+			LastName:  "Martin",
+			Dob:       time.Date(1978, time.March, 15, 0, 0, 0, 0, time.UTC),
+			Email:     "chris@email.com",
+			Location:  "Santa Clara",
+		},
+		Skills: []string{
+			"Go",
+			"Docker",
+		},
+	}
 
-	shiju.PrintName()
-	shiju.PrintDetails()
+	team := team.Team{
+		Name:        "Go",
+		Description: "Golang CoE",
+		Users:       []person.User{alex, shiju, chris},
+	}
+
+	team.GetTeamDetails()
 }
