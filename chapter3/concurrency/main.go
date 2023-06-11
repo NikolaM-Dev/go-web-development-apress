@@ -21,3 +21,19 @@ func printCounts(label string) {
 		fmt.Printf("Count: %d from %s\n", count, label)
 	}
 }
+
+func main() {
+	// Add a count of two, one for each goroutines
+	wg.Add(2)
+
+	fmt.Println("Start Goroutines")
+	// launch a goroutine with label "A"
+	go printCounts("A")
+	// launch a goroutine with label "B"
+	go printCounts("B")
+	// Wait for the goroutines to finish.
+	fmt.Println("Waiting to finish")
+	wg.Wait()
+
+	fmt.Println("\nTerminating Program")
+}
